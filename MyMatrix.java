@@ -58,13 +58,13 @@ public class MyMatrix {
         System.out.println(m2);
 
 
-        // for (r = 0; r < row; r++) {
-        //     for (c = 0; c < col; c++) {
-        //         x[r][c] = m1.element(r, c) + m2.element(r, c);
-        //         System.out.print(x[r][c] + "");
-        //     }
-        //     System.out.println();
-        // }
+        for (r = 0; r < row; r++) {
+            for (c = 0; c < col; c++) {
+                x[r][c] = m1.element(r, c) + m2.element(r, c);
+                System.out.print(x[r][c] + "");
+            }
+            System.out.println();
+        }
     }
 
     public void perkalian(MyMatrix m1, MyMatrix m2) {
@@ -102,7 +102,7 @@ public class MyMatrix {
         System.out.println("Tentukan Determinan Matrik: B");
         System.out.print("Matrik B: ");
         y = keyboard.nextInt();
-        MyMatrix a = new MyMatrix(x,y);
+        MyMatrix a = new MyMatrix(y,x);
         System.out.println("Input Matriks A");
         a.read();
         System.out.println("Matriks A");
@@ -112,14 +112,20 @@ public class MyMatrix {
         b.read();
         System.out.println("Matriks B");
         b.write();
-        MyMatrix c = new MyMatrix(2, 2);
-        System.out.println("Hasil Penjumlahan Matriks A dan B");
-        c.add(a, b);
-        MyMatrix d = new MyMatrix(2, 2);
-        System.out.println("Hasil Perkalian Matriks A dan B");
-        // d.perkalian(a, b);
-        MyMatrix E = new MyMatrix(2, 2);
-        System.out.println("Hasil Pengurangan2 Matriks A dan B");
+
+        if (x == y) {
+            MyMatrix c = new MyMatrix(2, 2);
+            System.out.println("Hasil Penjumlahan Matriks A dan B");
+            c.add(a, b);
+            MyMatrix d = new MyMatrix(2, 2);
+            System.out.println("Hasil Perkalian Matriks A dan B");
+            // d.perkalian(a, b);
+            MyMatrix E = new MyMatrix(2, 2);
+            System.out.println("Hasil Pengurangan2 Matriks A dan B");
+        } else {
+            System.out.println("Ukuran Matrik Tidak Sama");
+        }
+       
         // E.pengurangan(a, b);
     }
 
